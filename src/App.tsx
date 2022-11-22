@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
 import Cards from "./Cards";
-import { CssBaseline, Typography } from "@mui/material";
+import { CssBaseline, Typography, Grid } from "@mui/material";
 import PrimarySearchAppBar from "./PrimarySearchBar";
 import { createTheme, ThemeProvider, colors } from "@mui/material";
+import Size from "./Size";
 
 const theme = createTheme({
   palette: {
@@ -25,8 +26,14 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <PrimarySearchAppBar />
-          <Typography variant="h1">LHS</Typography>
-          <Cards />
+          <Grid container spacing={2}>
+            <Grid item xs={2.5} sx={{ backgroundColor: "grey" }}>
+              <Size />
+            </Grid>
+            <Grid item xs={9.5}>
+              <Cards />
+            </Grid>
+          </Grid>
           <Typography variant="h1">RHS</Typography>
         </CssBaseline>
       </ThemeProvider>
