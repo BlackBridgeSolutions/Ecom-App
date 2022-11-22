@@ -10,8 +10,9 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { palette, Theme } from "@mui/system";
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -75,13 +76,13 @@ export default function PrimarySearchAppBar() {
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
+          color="warning"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <ShoppingCartIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>ShoppingCartIcons</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <p>Profile</p>
@@ -117,8 +118,12 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge
+                badgeContent={17}
+                color="warning"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              >
+                <ShoppingCartIcon />
               </Badge>
             </IconButton>
           </Box>

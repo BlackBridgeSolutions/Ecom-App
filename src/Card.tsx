@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Grid, Button, imageListClasses } from "@mui/material";
+import { Card, Grid, Button, makeStyles, Theme } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,7 +11,7 @@ export default function MediaCard() {
     <Grid item>
       <Card sx={{ maxWidth: 200, padding: "0px" }}>
         <CardMedia component="img" height="300" src={image} alt="clothes" />
-        <CardContent sx={{ flexGrow: 1 }}>
+        <CardContent>
           <Typography gutterBottom variant="h6" align="center" component="div">
             Cropped Stay Groovy off white
           </Typography>
