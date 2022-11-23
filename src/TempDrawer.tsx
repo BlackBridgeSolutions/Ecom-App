@@ -40,9 +40,20 @@ export default function TempDrawer() {
           anchor={"right"}
           open={tempDrawer}
           onClose={() => setTempDrawer(false)}
-          sx={{ backdropFilter: "transparent" }}
+          sx={{ backdropFilter: "transparent", pointerEvents: "none" }}
           hideBackdrop={true}
         >
+          <Button
+            color="secondary"
+            sx={{
+              position: "absolute",
+              left: "-10px",
+              backgroundColor: "orange",
+            }}
+            onClick={() => setTempDrawer(false)}
+          >
+            X
+          </Button>
           <Box
             p={2}
             width="450px"
@@ -50,7 +61,6 @@ export default function TempDrawer() {
             textAlign="center"
             role="presentation"
           >
-            <Button color="secondary">X</Button>
             <Grid
               style={{
                 alignItems: "center",

@@ -1,14 +1,33 @@
 import * as React from "react";
-import { Card, Grid, Button, makeStyles, Theme } from "@mui/material";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import {
+  Card,
+  Grid,
+  Button,
+  Box,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import image from "./images/purplejacket.jpg";
 
 export default function MediaCard() {
   return (
     <Grid item>
+      <Box
+        height="20px"
+        color="secondary"
+        sx={{
+          position: "absolute",
+          backgroundColor: "black",
+          marginLeft: "9vh",
+          padding: "3px 10px",
+        }}
+      >
+        <Typography variant="body2" color="secondary" sx={{ fontSize: "10px" }}>
+          Free Shipping
+        </Typography>
+      </Box>
       <Card sx={{ maxWidth: 200, padding: "0px" }}>
         <CardMedia component="img" height="300" src={image} alt="clothes" />
         <CardContent>

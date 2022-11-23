@@ -35,7 +35,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <PrimarySearchAppBar /*handleClick={() => }*/ />
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{ paddingTop: "85px" }}>
             <Grid item xs={2.5} sx={{ backgroundColor: "grey" }}>
               <Size />
             </Grid>
