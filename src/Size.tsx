@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Grid, Typography, ButtonGroup } from "@mui/material";
-import { Grid4x4 } from "@mui/icons-material";
+import { styled } from "@mui/system";
 
 export default function Size() {
   const sizeArray: string[] = ["XS", "S", "M", "ML", "L", "XL", "XXL"];

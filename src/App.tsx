@@ -9,13 +9,22 @@ import Size from "./Size";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#000000",
+      main: "#1B1A20",
     },
     secondary: {
       main: "#FFFFFF",
     },
     warning: {
       main: "#EABF02",
+    },
+  },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          background: "#1B1A20",
+        },
+      },
     },
   },
 });
@@ -25,7 +34,7 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline>
-          <PrimarySearchAppBar />
+          <PrimarySearchAppBar /*handleClick={() => }*/ />
           <Grid container spacing={2}>
             <Grid item xs={2.5} sx={{ backgroundColor: "grey" }}>
               <Size />
@@ -34,7 +43,6 @@ function App() {
               <Cards />
             </Grid>
           </Grid>
-          <Typography variant="h1">RHS</Typography>
         </CssBaseline>
       </ThemeProvider>
     </div>

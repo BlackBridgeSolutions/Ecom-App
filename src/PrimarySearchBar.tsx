@@ -13,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { palette, Theme } from "@mui/system";
+import TempDrawer from "./TempDrawer";
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -77,11 +78,7 @@ export default function PrimarySearchAppBar() {
           size="large"
           aria-label="show 17 new notifications"
           color="warning"
-        >
-          <Badge badgeContent={17} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
+        ></IconButton>
         <p>ShoppingCartIcons</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
@@ -112,20 +109,12 @@ export default function PrimarySearchAppBar() {
             ARC Platforms
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge
-                badgeContent={17}
-                color="warning"
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              >
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+            }}
+          >
+            <TempDrawer />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
