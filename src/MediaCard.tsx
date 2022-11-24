@@ -13,14 +13,14 @@ import image from "./images/purplejacket.jpg";
 
 export default function MediaCard() {
   return (
-    <Grid item>
+    <Grid item sx={{ position: "relative" }}>
       <Box
         height="20px"
         color="secondary"
         sx={{
           position: "absolute",
+          right: "0px",
           backgroundColor: "black",
-          marginLeft: "9vh",
           padding: "3px 10px",
         }}
       >

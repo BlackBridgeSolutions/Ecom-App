@@ -11,7 +11,7 @@ export default function Size() {
       </Typography>
       <Grid container spacing={1}>
         {sizeArray.map((size: string) => (
-          <Grid item xs={3}>
+          <Grid item xs={3} sx={{ flexWrap: "wrap" }}>
             <Button sx={{ fontSize: "12px", borderRadius: "10px" }}>
               {size}
             </Button>

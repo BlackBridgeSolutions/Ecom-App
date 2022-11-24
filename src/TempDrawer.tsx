@@ -8,7 +8,9 @@ import {
   Grid,
   Button,
 } from "@mui/material";
+import { positions } from "@mui/system";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Cart from "./Cart";
 
 type Anchor = "right";
 
@@ -40,14 +42,13 @@ export default function TempDrawer() {
           anchor={"right"}
           open={tempDrawer}
           onClose={() => setTempDrawer(false)}
-          sx={{ backdropFilter: "transparent", pointerEvents: "none" }}
+          sx={{ backdropFilter: "transparent", position: "relative" }}
           hideBackdrop={true}
         >
           <Button
             color="secondary"
             sx={{
               position: "absolute",
-              left: "-10px",
               backgroundColor: "orange",
             }}
             onClick={() => setTempDrawer(false)}
@@ -79,6 +80,7 @@ export default function TempDrawer() {
               </Typography>
             </Grid>
           </Box>
+          <Cart />
         </Drawer>
       </>
     </div>
