@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   Card,
   Grid,
@@ -12,8 +13,14 @@ import {
 import image from "./images/purplejacket.jpg";
 
 export default function MediaCard() {
+  const [cardHover, setCardHover] = useState(false);
   return (
-    <Grid item sx={{ position: "relative" }}>
+    <Grid
+      item
+      sx={{ position: "relative" }}
+      onMouseEnter={() => console.log("hover: enter")}
+      onMouseLeave={() => console.log("hover:leave")}
+    >
       <Box
         height="20px"
         color="secondary"

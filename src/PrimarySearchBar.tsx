@@ -10,9 +10,7 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { palette, Theme } from "@mui/system";
 import TempDrawer from "./TempDrawer";
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -111,22 +109,10 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ flexGrow: 1 }} />
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { md: "flex" },
             }}
           >
             <TempDrawer />
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
           </Box>
         </Toolbar>
       </AppBar>

@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import Grid2 from "@mui/material/Unstable_Grid2";
+
 import MediaCard from "./MediaCard";
 
 export default function Cards() {
@@ -10,11 +10,11 @@ export default function Cards() {
       <Typography variant="h6" sx={{ display: "inline" }}>
         16 Product(s) found
       </Typography>
-      <Grid2 container spacing={3} sx={{ marginTop: "0px" }}>
+      <Grid container spacing={3}>
         {cardList.map((card: number) => (
           <MediaCard key={card} />
         ))}
-      </Grid2>
+      </Grid>
     </>
   );
 }

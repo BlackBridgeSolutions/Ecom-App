@@ -36,10 +36,10 @@ function App() {
         <CssBaseline>
           <PrimarySearchAppBar /*handleClick={() => }*/ />
           <Grid container spacing={2} sx={{ paddingTop: "85px" }}>
-            <Grid item xs={2.5} sx={{ backgroundColor: "grey" }}>
+            <Grid item xs={3}>
               <Size />
             </Grid>
-            <Grid item xs={9.5}>
+            <Grid item xs={9}>
               <Cards />
             </Grid>
           </Grid>
