@@ -42,7 +42,10 @@ export default function TempDrawer() {
           anchor={"right"}
           open={tempDrawer}
           onClose={() => setTempDrawer(false)}
-          sx={{ backdropFilter: "transparent", position: "relative" }}
+          sx={{
+            backdropFilter: "transparent",
+            position: "relative",
+          }}
           hideBackdrop={true}
         >
           <Button
