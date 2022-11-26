@@ -1,8 +1,17 @@
 import React from "react";
-import { Grid, Typography, IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { useState } from "react";
+import { Grid, Typography, Checkbox } from "@mui/material";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+import { IndeterminateCheckBoxSharp } from "@mui/icons-material";
+
+interface SizeClickedItem {
+  value: string;
+  clicked: boolean;
+}
 
 export default function Size() {
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <div style={{ padding: "0 30px 0 130px" }}>
       <Typography
@@ -17,9 +26,11 @@ export default function Size() {
         sx={{ display: "flex", flexDirection: "columns" }}
       >
         {[1, 2, 3, 4, 5, 6, 7].map(() => (
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
+          <Checkbox
+            {...label}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+          />
         ))}
       </Grid>
       <Typography variant="body1" sx={{ padding: "20px 0" }}>
