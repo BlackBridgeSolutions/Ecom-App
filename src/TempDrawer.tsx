@@ -28,69 +28,73 @@ export default function TempDrawer() {
 
   return (
     <div>
-      <>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-          onClick={() => setTempDrawer(true)}
-        >
-          {icon}
-        </IconButton>
+      <IconButton
+        size="large"
+        aria-label="show 17 new notifications"
+        color="inherit"
+        onClick={() => setTempDrawer(true)}
+      >
+        {icon}
+      </IconButton>
 
-        <Drawer
-          anchor={"right"}
-          open={tempDrawer}
-          onClose={() => setTempDrawer(false)}
-          PaperProps={{ sx: { overflow: "visible" } }}
-          sx={{
-            backdropFilter: "transparent",
-            position: "relative",
-          }}
-          hideBackdrop={true}
-        >
-          <Button
-            color="secondary"
-            sx={{
-              position: "absolute",
-              backgroundColor: "orange",
-              borderRadius: "0",
-              minWidth: "50px",
-              height: "50px",
-              left: "-50px",
-            }}
-            onClick={() => setTempDrawer(false)}
-          >
-            X
-          </Button>
-          <Box
-            p={2}
-            width="450px"
-            alignItems="center"
-            textAlign="center"
-            role="presentation"
-          >
-            <Grid
-              style={{
-                alignItems: "center",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "55px",
+      <Drawer
+        anchor={"right"}
+        open={tempDrawer}
+        onClose={() => setTempDrawer(false)}
+        PaperProps={{ sx: { overflow: "visible" } }}
+        sx={{
+          backdropFilter: "transparent",
+          position: "relative",
+        }}
+        hideBackdrop={true}
+      >
+        <Grid container sx={{ overflow: "auto" }}>
+          <Grid item>
+            <Button
+              color="secondary"
+              sx={{
+                position: "absolute",
+                backgroundColor: "orange",
+                borderRadius: "0",
+                minWidth: "50px",
+                height: "50px",
+                left: "-50px",
               }}
+              onClick={() => setTempDrawer(false)}
             >
-              {icon}
-              <Typography
-                variant="h6"
-                color="secondary"
-                sx={{ marginLeft: "20px" }}
+              X
+            </Button>
+          </Grid>
+          <Grid item>
+            <Box
+              p={2}
+              width="450px"
+              alignItems="center"
+              textAlign="center"
+              role="presentation"
+            >
+              <Grid
+                style={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "55px",
+                }}
               >
-                Cart
-              </Typography>
-            </Grid>
-          </Box>
-          <Cart />
-        </Drawer>
-      </>
+                {icon}
+                <Typography
+                  variant="h6"
+                  color="secondary"
+                  sx={{ marginLeft: "20px" }}
+                >
+                  Cart
+                </Typography>
+              </Grid>
+            </Box>
+            <Cart />
+          </Grid>
+        </Grid>
+      </Drawer>
     </div>
   );
 }

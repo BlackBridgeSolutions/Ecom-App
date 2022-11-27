@@ -10,6 +10,7 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Divider,
 } from "@mui/material";
 import image from "./images/purplejacket.jpg";
 
@@ -22,7 +23,12 @@ export default function MediaCard() {
     >
       <Typography sx={{ fontSize: "12.8px", display: "inline" }}>$</Typography>
       <Typography
-        sx={{ fontSize: "24px", display: "inline", fontWeight: "bold" }}
+        sx={{
+          fontSize: "24px",
+          display: "inline",
+          fontWeight: "bold",
+          color: "black",
+        }}
       >
         10
       </Typography>
@@ -54,10 +60,20 @@ export default function MediaCard() {
             variant="h6"
             align="center"
             component="div"
-            sx={{ fontSize: "16px" }}
+            sx={{ fontSize: "16px", lineHeight: 1.3 }}
           >
             Cropped Stay Groovy off white
           </Typography>
+          <Divider
+            textAlign="center"
+            sx={{
+              backgroundColor: "#EABF00",
+              borderBottomWidth: "2px",
+              marginBottom: "13px",
+              marginLeft: "45%",
+              marginRight: "45%",
+            }}
+          />
           {dollarCost}
         </CardContent>
         <CardActions sx={{ padding: "0px", backgroundColor: "primary.main" }}>
