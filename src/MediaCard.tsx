@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
+import "./MediaCard.css";
 import {
   Card,
   Grid,
@@ -13,14 +14,24 @@ import {
 import image from "./images/purplejacket.jpg";
 
 export default function MediaCard() {
-  const [cardHover, setCardHover] = useState(false);
-  return (
-    <Grid
-      item
-      sx={{ position: "relative" }}
-      onMouseEnter={() => console.log("hover: enter")}
-      onMouseLeave={() => console.log("hover:leave")}
+  const dollarCost = (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      sx={{ textAlign: "center" }}
     >
+      <Typography sx={{ fontSize: "12.8px", display: "inline" }}>$</Typography>
+      <Typography
+        sx={{ fontSize: "24px", display: "inline", fontWeight: "bold" }}
+      >
+        10
+      </Typography>
+      <Typography sx={{ fontSize: "16px", display: "inline" }}>.90</Typography>
+      <Typography sx={{ fontSize: "16px" }}>or 9 x$1.21</Typography>
+    </Typography>
+  );
+  return (
+    <Grid item sx={{ position: "relative" }} className="media--card">
       <Box
         height="20px"
         color="secondary"
@@ -35,18 +46,31 @@ export default function MediaCard() {
           Free Shipping
         </Typography>
       </Box>
-      <Card sx={{ maxWidth: 200, padding: "0px" }}>
+      <Card sx={{ maxWidth: 200, padding: "0px", borderRadius: "0px" }}>
         <CardMedia component="img" height="300" src={image} alt="clothes" />
         <CardContent>
-          <Typography gutterBottom variant="h6" align="center" component="div">
+          <Typography
+            gutterBottom
+            variant="h6"
+            align="center"
+            component="div"
+            sx={{ fontSize: "16px" }}
+          >
             Cropped Stay Groovy off white
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            $10.90 <Typography>or 9 x$1.21</Typography>
-          </Typography>
+          {dollarCost}
         </CardContent>
         <CardActions sx={{ padding: "0px", backgroundColor: "primary.main" }}>
-          <Button size="large" fullWidth={true} color="secondary">
+          <Button
+            size="large"
+            fullWidth={true}
+            color="secondary"
+            sx={{
+              borderRadius: "0px",
+              cursor: "pointer",
+              textTransform: "none",
+            }}
+          >
             Add to cart
           </Button>
         </CardActions>

@@ -42,6 +42,7 @@ export default function TempDrawer() {
           anchor={"right"}
           open={tempDrawer}
           onClose={() => setTempDrawer(false)}
+          PaperProps={{ sx: { overflow: "visible" } }}
           sx={{
             backdropFilter: "transparent",
             position: "relative",
@@ -53,6 +54,10 @@ export default function TempDrawer() {
             sx={{
               position: "absolute",
               backgroundColor: "orange",
+              borderRadius: "0",
+              minWidth: "50px",
+              height: "50px",
+              left: "-50px",
             }}
             onClick={() => setTempDrawer(false)}
           >
