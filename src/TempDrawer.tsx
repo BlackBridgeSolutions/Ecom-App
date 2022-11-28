@@ -32,7 +32,7 @@ export default function TempDrawer({
 }: Props) {
   const icon = (
     <Badge
-      badgeContent={importVals()[0]}
+      badgeContent={importVals()[0] === 0 ? "0" : importVals()[0]}
       color="warning"
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
@@ -105,6 +105,22 @@ export default function TempDrawer({
                 </Typography>
               </Grid>
             </Box>
+            {importVals()[0] === 0 && (
+              <div>
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    paddingTop: "40px",
+                    fontSize: "16px",
+                  }}
+                >
+                  {`Add some products in the cart`}
+                </Typography>
+                <Typography sx={{ textAlign: "center", paddingTop: "20px" }}>
+                  {`:)`}
+                </Typography>
+              </div>
+            )}
             <Cart
               data={data}
               changeQuant={changeQuant}

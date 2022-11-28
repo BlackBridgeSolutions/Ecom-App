@@ -194,6 +194,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
                 paddingRight: "30px",
                 color: "#5B5A5E",
                 fontSize: "16px",
+                visibility: importVals()[0] === 0 ? "hidden" : "visible",
               }}
             >
               OR UP TO {importVals()[0]} x ${importVals()[2]}
