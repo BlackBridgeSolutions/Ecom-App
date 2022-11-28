@@ -11,9 +11,12 @@ import {
   ButtonGroup,
   Grid,
   Divider,
+  IconButton,
 } from "@mui/material";
-import { spacing } from "@mui/system";
 import image from "./images/purplejacket.jpg";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 export default function Cart() {
   const [quantity, setQuantity] = useState(0);
@@ -49,7 +52,7 @@ export default function Cart() {
             {dividerDiv}
             <Card
               sx={{
-                padding: "15px",
+                padding: "15px 15px",
                 display: "flex",
                 width: "450px",
                 backgroundColor: "#1B1A20",
@@ -78,13 +81,71 @@ export default function Cart() {
                   <Typography color="#5B5A5E">Quantity: 1</Typography>
                 </CardContent>
               </Box>
-              <Box sx={{ display: "block", flexDirection: "row" }}>
-                <CardContent>
-                  <Button>x</Button>
-                  <Typography color="#EABF02">$50.23</Typography>
+              <Box>
+                <CardContent
+                  sx={{
+                    padding: "0px 15px",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <IconButton
+                    sx={{
+                      padding: "0px 15px",
+                      // marginLeft: "50%",
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  <Typography
+                    sx={{
+                      margin: "10px",
+                      justifyContent: "flex-end",
+                    }}
+                    color="#EABF02"
+                  >
+                    $50.23
+                  </Typography>
                   <ButtonGroup>
-                    <Button onClick={decrement}>-</Button>
-                    <Button onClick={increment}>+</Button>
+                    <Button
+                      fullWidth={true}
+                      sx={{
+                        padding: "0px",
+                        margin: "0px",
+                        backgroundColor: "black",
+                        maxWidth: "25px",
+                        height: "25px",
+                      }}
+                      onClick={decrement}
+                    >
+                      <IconButton
+                        sx={{
+                          padding: "0px 0px",
+                          // marginLeft: "50%",
+                        }}
+                      >
+                        <RemoveIcon color="secondary" />
+                      </IconButton>
+                    </Button>
+                    <Button
+                      fullWidth={true}
+                      sx={{
+                        padding: "0px",
+                        margin: "0px",
+                        backgroundColor: "black",
+                        maxWidth: "25px",
+                        height: "25px",
+                      }}
+                      onClick={decrement}
+                    >
+                      <IconButton
+                        sx={{
+                          padding: "0px 0px",
+                          // marginLeft: "50%",
+                        }}
+                      >
+                        <AddIcon color="secondary" />
+                      </IconButton>
+                    </Button>
                   </ButtonGroup>
                 </CardContent>
               </Box>
@@ -101,7 +162,10 @@ export default function Cart() {
       >
         <Grid container xs={12} sx={{ margin: "40px 0 10px 0" }}>
           <Grid item xs={6}>
-            <Typography color="secondary" sx={{ paddingLeft: "30px" }}>
+            <Typography
+              color="secondary"
+              sx={{ paddingLeft: "30px", color: "#5B5A5E", fontSize: "16px" }}
+            >
               SUBTOTAL
             </Typography>
           </Grid>
@@ -109,13 +173,18 @@ export default function Cart() {
             <Typography
               variant="h5"
               color="warning.main"
-              sx={{ float: "right", paddingRight: "30px" }}
+              sx={{ float: "right", paddingRight: "30px", fontSize: "22px" }}
             >
               $116.65
             </Typography>
             <Typography
-              color="secondary"
-              sx={{ display: "block", float: "right", paddingRight: "30px" }}
+              sx={{
+                display: "block",
+                float: "right",
+                paddingRight: "30px",
+                color: "#5B5A5E",
+                fontSize: "16px",
+              }}
             >
               OR UP TO 12 x $9.72
             </Typography>

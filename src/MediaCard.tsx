@@ -13,8 +13,15 @@ import {
   Divider,
 } from "@mui/material";
 import image from "./images/purplejacket.jpg";
+import { Data } from "./interfaces";
 
-export default function MediaCard() {
+interface Props {
+  key: number;
+  dataItem: Data;
+}
+
+export default function MediaCard({ key, dataItem }: Props) {
+  console.log(dataItem, "dataItem");
   const dollarCost = (
     <Typography
       variant="body2"
@@ -30,28 +37,36 @@ export default function MediaCard() {
           color: "black",
         }}
       >
-        10
+        {dataItem.priceDollars}
       </Typography>
-      <Typography sx={{ fontSize: "16px", display: "inline" }}>.90</Typography>
-      <Typography sx={{ fontSize: "16px" }}>or 9 x$1.21</Typography>
+      <Typography sx={{ fontSize: "16px", display: "inline" }}>
+        .{dataItem.priceCents}
+      </Typography>
+      <Typography sx={{ fontSize: "16px" }}>or {dataItem.deal}</Typography>
     </Typography>
   );
   return (
     <Grid item sx={{ position: "relative" }} className="media--card">
-      <Box
-        height="20px"
-        color="secondary"
-        sx={{
-          position: "absolute",
-          right: "0px",
-          backgroundColor: "black",
-          padding: "3px 10px",
-        }}
-      >
-        <Typography variant="body2" color="secondary" sx={{ fontSize: "10px" }}>
-          Free Shipping
-        </Typography>
-      </Box>
+      {dataItem.shipping && (
+        <Box
+          height="20px"
+          color="secondary"
+          sx={{
+            position: "absolute",
+            right: "0px",
+            backgroundColor: "black",
+            padding: "3px 10px",
+          }}
+        >
+          <Typography
+            variant="body2"
+            color="secondary"
+            sx={{ fontSize: "10px" }}
+          >
+            Free Shipping
+          </Typography>
+        </Box>
+      )}
       <Card sx={{ maxWidth: 200, padding: "0px", borderRadius: "0px" }}>
         <CardMedia component="img" height="300" src={image} alt="clothes" />
         <CardContent>
@@ -62,7 +77,7 @@ export default function MediaCard() {
             component="div"
             sx={{ fontSize: "16px", lineHeight: 1.3 }}
           >
-            Cropped Stay Groovy off white
+            {dataItem.name}
           </Typography>
           <Divider
             textAlign="center"
