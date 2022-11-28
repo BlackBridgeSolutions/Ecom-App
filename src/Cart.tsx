@@ -24,20 +24,11 @@ import { DisabledByDefault } from "@mui/icons-material";
 interface Props {
   data: Data[];
   changeQuant: any;
+  importVals: any;
 }
 
-export default function Cart({ data, changeQuant }: Props) {
-  const [quantity, setQuantity] = useState(0);
-  const [totalCost, setTotalCost] = useState(0);
-
+export default function Cart({ data, changeQuant, importVals }: Props) {
   const chosenItems = data.filter((dataItem) => dataItem.quantity > 0);
-
-  function decrement() {
-    if (quantity > 1) {
-      let newQuantity: number = quantity - 1;
-      setQuantity(newQuantity);
-    }
-  }
   const dividerDiv = (
     <Divider
       sx={{ textAlign: "center", marginLeft: "90%", marginRight: "10%" }}
@@ -194,7 +185,7 @@ export default function Cart({ data, changeQuant }: Props) {
               color="warning.main"
               sx={{ float: "right", paddingRight: "30px", fontSize: "22px" }}
             >
-              $116.65
+              ${importVals()[1].toString()}
             </Typography>
             <Typography
               sx={{
@@ -205,7 +196,7 @@ export default function Cart({ data, changeQuant }: Props) {
                 fontSize: "16px",
               }}
             >
-              OR UP TO 12 x $9.72
+              OR UP TO {importVals()[0]} x ${importVals()[2]}
             </Typography>
           </Grid>
         </Grid>

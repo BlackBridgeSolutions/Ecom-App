@@ -33,6 +33,7 @@ interface Props {
   tempDrawer: boolean;
   data: Data[];
   changeQuant: any;
+  importVals: any;
 }
 
 export default function PrimarySearchAppBar({
@@ -40,6 +41,7 @@ export default function PrimarySearchAppBar({
   tempDrawer,
   data,
   changeQuant,
+  importVals,
 }: Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -77,6 +79,7 @@ export default function PrimarySearchAppBar({
               tempDrawer={tempDrawer}
               data={data}
               changeQuant={changeQuant}
+              importVals={importVals}
             />
           </Box>
         </Toolbar>

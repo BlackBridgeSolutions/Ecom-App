@@ -91,7 +91,6 @@ export default function MediaCard({ key, dataItem, onAddCart }: Props) {
             }}
           />
           {dollarCost}
-          {dataItem.quantity}
         </CardContent>
         <CardActions sx={{ padding: "0px", backgroundColor: "primary.main" }}>
           <Button

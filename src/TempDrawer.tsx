@@ -18,6 +18,7 @@ interface Props {
   tempDrawer: boolean;
   data: Data[];
   changeQuant: any;
+  importVals: any;
 }
 
 type Anchor = "right";
@@ -27,10 +28,11 @@ export default function TempDrawer({
   tempDrawer,
   data,
   changeQuant,
+  importVals,
 }: Props) {
   const icon = (
     <Badge
-      badgeContent={19}
+      badgeContent={importVals()[0]}
       color="warning"
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
@@ -42,7 +44,7 @@ export default function TempDrawer({
     <div>
       <IconButton
         size="large"
-        aria-label="show 17 new notifications"
+        aria-label="show new notifications"
         color="inherit"
         onClick={() => handleTempDrawer(true)}
       >
@@ -103,7 +105,11 @@ export default function TempDrawer({
                 </Typography>
               </Grid>
             </Box>
-            <Cart data={data} changeQuant={changeQuant} />
+            <Cart
+              data={data}
+              changeQuant={changeQuant}
+              importVals={importVals}
+            />
           </Grid>
         </Grid>
       </Drawer>

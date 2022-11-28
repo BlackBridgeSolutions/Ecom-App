@@ -6,6 +6,7 @@ import PrimarySearchAppBar from "./PrimarySearchBar";
 import { createTheme, ThemeProvider, colors } from "@mui/material";
 import Size from "./Size";
 import { Data } from "./interfaces";
+import { convertToObject } from "typescript";
 
 const theme = createTheme({
   palette: {
@@ -163,7 +164,6 @@ function App() {
       quote: "",
     },
   ]);
-  const [cartData, setCardData] = useState<Data[]>([]);
   const [tempDrawer, setTempDrawer] = useState<boolean>(false);
   const [subtotal, setSubtotal] = useState(0);
 
@@ -204,7 +204,26 @@ function App() {
 
     setData(newData);
   }
-
+  function importVals() {
+    const totalQuant = data
+      .map((dataItem) => dataItem.quantity)
+      .reduce((partialSum, a) => partialSum + a, 0);
+    const totalValue = parseFloat(
+      data
+        .map((dataItem) => dataItem.quantity * dataItem.price)
+        .reduce((partialSum, a) => partialSum + a, 0)
+        .toFixed(2)
+    );
+    const totalAverageValue = parseFloat(
+      (
+        data
+          .map((dataItem) => dataItem.quantity * dataItem.price)
+          .reduce((partialSum, a) => partialSum + a, 0) / totalQuant
+      ).toFixed(2)
+    );
+    return [totalQuant, totalValue, totalAverageValue];
+  }
+  importVals();
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -214,6 +233,7 @@ function App() {
             tempDrawer={tempDrawer}
             data={data}
             changeQuant={changeQuant}
+            importVals={importVals}
           />
           <Grid container spacing={2} sx={{ paddingTop: "85px" }}>
             <Grid item xs={3}>
