@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { Grid, Typography, Checkbox } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import { IndeterminateCheckBoxSharp } from "@mui/icons-material";
 
 interface SizeClickedItem {
   value: string;

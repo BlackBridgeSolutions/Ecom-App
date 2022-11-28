@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, MouseEvent } from "react";
 import "./MediaCard.css";
 import {
   Card,
@@ -76,7 +75,7 @@ export default function MediaCard({ key, dataItem, onAddCart }: Props) {
             variant="h6"
             align="center"
             component="div"
-            sx={{ fontSize: "16px", lineHeight: 1.3 }}
+            sx={{ fontSize: "16px", lineHeight: 1.3, height: "42px" }}
           >
             {dataItem.name}
           </Typography>

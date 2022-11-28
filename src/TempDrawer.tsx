@@ -8,7 +8,6 @@ import {
   Grid,
   Button,
 } from "@mui/material";
-import { positions } from "@mui/system";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Cart from "./Cart";
 import { Data } from "./interfaces";

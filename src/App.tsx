@@ -165,7 +165,6 @@ function App() {
     },
   ]);
   const [tempDrawer, setTempDrawer] = useState<boolean>(false);
-  const [subtotal, setSubtotal] = useState(0);
 
   function onAddCart(id: number) {
     //opens the drawer adds the new quantity

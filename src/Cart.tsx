@@ -1,8 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import {
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
@@ -18,8 +16,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Data } from "./interfaces";
-import { PropertySignature } from "typescript";
-import { DisabledByDefault } from "@mui/icons-material";
 
 interface Props {
   data: Data[];
@@ -87,26 +83,27 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
                   </Typography>
                 </CardContent>
               </Box>
-              <Box>
+              <Box sx={{ marginLeft: "auto" }}>
                 <CardContent
                   sx={{
                     padding: "0px 15px",
                     justifyContent: "flex-end",
                   }}
                 >
-                  <IconButton
-                    sx={{
-                      padding: "0px 15px",
-                      // marginLeft: "50%",
-                    }}
-                    onClick={() => changeQuant(chosenItem.id, "close")}
-                  >
-                    <CloseIcon />
-                  </IconButton>
+                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <IconButton
+                      sx={{
+                        padding: "0px 0px",
+                      }}
+                      onClick={() => changeQuant(chosenItem.id, "close")}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                  </div>
                   <Typography
                     sx={{
-                      margin: "10px",
-                      justifyContent: "flex-end",
+                      textAlign: "end",
+                      marginBottom: "15px",
                     }}
                     color="#EABF02"
                   >
