@@ -11,11 +11,23 @@ import {
 import { positions } from "@mui/system";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Cart from "./Cart";
+import { Data } from "./interfaces";
+
+interface Props {
+  handleTempDrawer: any;
+  tempDrawer: boolean;
+  data: Data[];
+  changeQuant: any;
+}
 
 type Anchor = "right";
 
-export default function TempDrawer() {
-  const [tempDrawer, setTempDrawer] = React.useState(false);
+export default function TempDrawer({
+  handleTempDrawer,
+  tempDrawer,
+  data,
+  changeQuant,
+}: Props) {
   const icon = (
     <Badge
       badgeContent={19}
@@ -32,7 +44,7 @@ export default function TempDrawer() {
         size="large"
         aria-label="show 17 new notifications"
         color="inherit"
-        onClick={() => setTempDrawer(true)}
+        onClick={() => handleTempDrawer(true)}
       >
         {icon}
       </IconButton>
@@ -40,7 +52,7 @@ export default function TempDrawer() {
       <Drawer
         anchor={"right"}
         open={tempDrawer}
-        onClose={() => setTempDrawer(false)}
+        onClose={() => handleTempDrawer(false)}
         PaperProps={{ sx: { overflow: "visible" } }}
         sx={{
           backdropFilter: "transparent",
@@ -60,7 +72,7 @@ export default function TempDrawer() {
                 height: "50px",
                 left: "-50px",
               }}
-              onClick={() => setTempDrawer(false)}
+              onClick={() => handleTempDrawer(false)}
             >
               X
             </Button>
@@ -91,7 +103,7 @@ export default function TempDrawer() {
                 </Typography>
               </Grid>
             </Box>
-            <Cart />
+            <Cart data={data} changeQuant={changeQuant} />
           </Grid>
         </Grid>
       </Drawer>

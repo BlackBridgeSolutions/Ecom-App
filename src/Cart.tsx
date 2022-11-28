@@ -17,15 +17,21 @@ import image from "./images/purplejacket.jpg";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { Data } from "./interfaces";
+import { PropertySignature } from "typescript";
+import { DisabledByDefault } from "@mui/icons-material";
 
-export default function Cart() {
+interface Props {
+  data: Data[];
+  changeQuant: any;
+}
+
+export default function Cart({ data, changeQuant }: Props) {
   const [quantity, setQuantity] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
 
-  function increment() {
-    let newQuantity: number = quantity + 1;
-    setQuantity(newQuantity);
-  }
+  const chosenItems = data.filter((dataItem) => dataItem.quantity > 0);
+
   function decrement() {
     if (quantity > 1) {
       let newQuantity: number = quantity - 1;
@@ -37,6 +43,13 @@ export default function Cart() {
       sx={{ textAlign: "center", marginLeft: "90%", marginRight: "10%" }}
     />
   );
+  function disabled(quantity: number) {
+    if (quantity === 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div>
@@ -47,7 +60,7 @@ export default function Cart() {
           paddingBottom: "200px",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map(() => (
+        {chosenItems.map((chosenItem) => (
           <div>
             {dividerDiv}
             <Card
@@ -73,12 +86,14 @@ export default function Cart() {
                     color="secondary"
                     sx={{ fontSize: "16px", lineHeight: 1.3 }}
                   >
-                    Cropped Stay Groovy off white
+                    {chosenItem.name}
                   </Typography>
                   <Typography color="#5B5A5E" sx={{ lineHeight: 1 }}>
-                    X | Wine
+                    {chosenItem.size} | {chosenItem.quote}
                   </Typography>
-                  <Typography color="#5B5A5E">Quantity: 1</Typography>
+                  <Typography color="#5B5A5E">
+                    Quantity: {chosenItem.quantity}
+                  </Typography>
                 </CardContent>
               </Box>
               <Box>
@@ -93,6 +108,7 @@ export default function Cart() {
                       padding: "0px 15px",
                       // marginLeft: "50%",
                     }}
+                    onClick={() => changeQuant(chosenItem.id, "close")}
                   >
                     <CloseIcon />
                   </IconButton>
@@ -103,7 +119,8 @@ export default function Cart() {
                     }}
                     color="#EABF02"
                   >
-                    $50.23
+                    ${chosenItem.priceDollars}.
+                    {chosenItem.priceCents === 0 ? "00" : chosenItem.priceCents}
                   </Typography>
                   <ButtonGroup>
                     <Button
@@ -114,8 +131,10 @@ export default function Cart() {
                         backgroundColor: "black",
                         maxWidth: "25px",
                         height: "25px",
+                        opacity: chosenItem.quantity === 1 ? "0.3" : "1",
                       }}
-                      onClick={decrement}
+                      disabled={disabled(chosenItem.quantity)}
+                      onClick={() => changeQuant(chosenItem.id, "decrement")}
                     >
                       <IconButton
                         sx={{
@@ -135,7 +154,7 @@ export default function Cart() {
                         maxWidth: "25px",
                         height: "25px",
                       }}
-                      onClick={decrement}
+                      onClick={() => changeQuant(chosenItem.id, "increment")}
                     >
                       <IconButton
                         sx={{

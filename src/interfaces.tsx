@@ -5,8 +5,11 @@ export interface Data {
   id: number;
   priceDollars: number;
   priceCents: number;
+  price: number;
   deal: string;
   shipping: boolean;
   size: string;
   img: string;
+  quantity: number;
+  quote: string;
 }

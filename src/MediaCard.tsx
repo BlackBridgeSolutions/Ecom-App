@@ -18,9 +18,10 @@ import { Data } from "./interfaces";
 interface Props {
   key: number;
   dataItem: Data;
+  onAddCart: any;
 }
 
-export default function MediaCard({ key, dataItem }: Props) {
+export default function MediaCard({ key, dataItem, onAddCart }: Props) {
   console.log(dataItem, "dataItem");
   const dollarCost = (
     <Typography
@@ -40,7 +41,7 @@ export default function MediaCard({ key, dataItem }: Props) {
         {dataItem.priceDollars}
       </Typography>
       <Typography sx={{ fontSize: "16px", display: "inline" }}>
-        .{dataItem.priceCents}
+        .{dataItem.priceCents === 0 ? "00" : dataItem.priceCents}
       </Typography>
       <Typography sx={{ fontSize: "16px" }}>or {dataItem.deal}</Typography>
     </Typography>
@@ -90,6 +91,7 @@ export default function MediaCard({ key, dataItem }: Props) {
             }}
           />
           {dollarCost}
+          {dataItem.quantity}
         </CardContent>
         <CardActions sx={{ padding: "0px", backgroundColor: "primary.main" }}>
           <Button
@@ -101,6 +103,7 @@ export default function MediaCard({ key, dataItem }: Props) {
               cursor: "pointer",
               textTransform: "none",
             }}
+            onClick={() => onAddCart(dataItem.id)}
           >
             Add to cart
           </Button>
