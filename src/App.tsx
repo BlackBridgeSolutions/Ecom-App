@@ -237,10 +237,10 @@ function App() {
     const sizeFilteredData = filteredSizes.map((size) =>
       size.name === sizeAction ? { ...size, value: !size.value } : { ...size }
     );
-    // if (Object.values(sizeFilteredData).every((size) => size.value === false)) {
-    //   setData(rawData);
-    //   return;
-    // }
+    if (Object.values(sizeFilteredData).every((size) => size.value === false)) {
+      setData(rawData);
+      return;
+    }
 
     setFilteredSizes(sizeFilteredData);
     // console.log(sizeFilteredData, "qwerty");
