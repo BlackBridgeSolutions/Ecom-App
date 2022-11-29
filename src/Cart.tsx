@@ -25,12 +25,12 @@ interface Props {
 
 export default function Cart({ data, changeQuant, importVals }: Props) {
   const chosenItems = data.filter((dataItem) => dataItem.quantity > 0);
-  const dividerDiv = (
+  const dividerDiv = ( // not sure why this is extracted, only used once
     <Divider
       sx={{ textAlign: "center", marginLeft: "90%", marginRight: "10%" }}
     />
   );
-  function disabled(quantity: number) {
+  function disabled(quantity: number) { // can be shortened to return quantity === 1
     if (quantity === 1) {
       return true;
     } else {
@@ -38,7 +38,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
     }
   }
   console.log(importVals()[0].toFixed(2), "123456");
-  return (
+  return ( // this is a very long return statement, defs break up cart into smaller components
     <div>
       <Box
         sx={{

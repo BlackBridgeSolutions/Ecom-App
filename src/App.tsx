@@ -30,7 +30,7 @@ const theme = createTheme({
 });
 
 function App() {
-  const rawData: Data[] = [
+  const rawData: Data[] = [ // put hard coded data in a separate file, makes App component less cluttered
     {
       name: "Cropped Stay Groovy off white",
       id: 1,
@@ -210,7 +210,7 @@ function App() {
   }
   function changeQuant(id: number, version: string): void {
     let newData: Data[] = [];
-    if (version === "increment") {
+    if (version === "increment") { // use a switch statement instead of if/else if conditionally checking a single variable's value
       newData = data.map((dataItem) =>
         dataItem.id === id
           ? { ...dataItem, quantity: dataItem.quantity + 1 }
@@ -242,7 +242,7 @@ function App() {
     setFilteredSizes(sizeFilteredData);
     // console.log(sizeFilteredData, "qwerty");
 
-    function organiseFilter(filteredSizes: FilteredSizes[]): void {
+    function organiseFilter(filteredSizes: FilteredSizes[]): void { // how necessary is this function? it's only called once, could exist on its own along with a comment 
       const filteredRawData = [];
       for (let i = 0; i < filteredSizes.length; i++) {
         if (filteredSizes[i].value === true) {
@@ -259,10 +259,10 @@ function App() {
     }
     organiseFilter(sizeFilteredData);
   }
-  function importVals(): number[] {
+  function importVals(): number[] { // what does this function do? it's not clear from the name
     const totalQuant = data
       .map((dataItem) => dataItem.quantity)
-      .reduce((partialSum, a) => partialSum + a, 0);
+      .reduce((partialSum, a) => partialSum + a, 0); // good use of array methods
     const totalValue = parseFloat(
       data
         .map((dataItem) => dataItem.quantity * dataItem.price)
@@ -278,7 +278,7 @@ function App() {
     );
     return [totalQuant, totalValue, totalAverageValue];
   }
-  return (
+  return ( // good nesting of components, next time make a src/components folder and put each component in its respective file/subfodler
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline>

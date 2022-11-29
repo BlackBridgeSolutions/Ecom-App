@@ -45,7 +45,7 @@ export default function MediaCard({ key, dataItem, onAddCart }: Props) {
       <Typography sx={{ fontSize: "16px" }}>or {dataItem.deal}</Typography>
     </Typography>
   );
-  return (
+  return ( // this component would also benefit from being broken up into a couple smaller components
     <Grid item sx={{ position: "relative" }} className="media--card">
       {dataItem.shipping && (
         <Box

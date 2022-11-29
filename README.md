@@ -1,3 +1,15 @@
+# Nice
+
+This is a giga improvement over your last app. You've improved heaps pretty quickly.
+Some things to look into further:
+
+-   In the next project start looking into using PRs to merge your code into master. This will help you to get used to working in a team and also to get used to reviewing your own code before merging it into master.
+-   Look into using a linter (eslint) to help you with your code quality. This will help you to keep your code consistent, readable and more bug-free.
+-   Experiment with using a testing framework (Jest) to help you write tests for your code.
+-   Read Clean Code JavaScript - https://github.com/ryanmcdermott/clean-code-javascript
+-   Go through bulletproof react - https://github.com/alan2207/bulletproof-react
+-   Start your BE (backend) grind
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
