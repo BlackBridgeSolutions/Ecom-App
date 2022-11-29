@@ -7,9 +7,13 @@ interface SizeClickedItem {
   value: string;
   clicked: boolean;
 }
+interface Props {
+  filterSize: any;
+}
 
-export default function Size() {
+export default function Size({ filterSize }: Props) {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
   return (
     <div style={{ padding: "0 30px 0 130px" }}>
       <Typography
@@ -23,11 +27,12 @@ export default function Size() {
         spacing={1}
         sx={{ display: "flex", flexDirection: "columns" }}
       >
-        {[1, 2, 3, 4, 5, 6, 7].map(() => (
+        {sizes.map((size) => (
           <Checkbox
             {...label}
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}
+            onClick={() => filterSize(size)}
           />
         ))}
       </Grid>

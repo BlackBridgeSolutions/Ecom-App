@@ -14,7 +14,7 @@ export default function Cards({ data, onAddCart }: Props) {
   return (
     <>
       <Typography variant="h6" sx={{ display: "inline" }}>
-        16 Product(s) found
+        {data.length} Product{data.length === 1 ? "" : "s"} found
       </Typography>
       <Grid container spacing={3}>
         {data.map((dataItem: any) => (

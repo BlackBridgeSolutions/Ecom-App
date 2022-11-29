@@ -107,6 +107,7 @@ export default function TempDrawer({
             {importVals()[0] === 0 && (
               <div>
                 <Typography
+                  color="secondary"
                   sx={{
                     textAlign: "center",
                     paddingTop: "40px",
@@ -115,7 +116,10 @@ export default function TempDrawer({
                 >
                   {`Add some products in the cart`}
                 </Typography>
-                <Typography sx={{ textAlign: "center", paddingTop: "20px" }}>
+                <Typography
+                  color="secondary"
+                  sx={{ textAlign: "center", paddingTop: "20px" }}
+                >
                   {`:)`}
                 </Typography>
               </div>

@@ -5,7 +5,7 @@ import { CssBaseline, Typography, Grid } from "@mui/material";
 import PrimarySearchAppBar from "./PrimarySearchBar";
 import { createTheme, ThemeProvider, colors } from "@mui/material";
 import Size from "./Size";
-import { Data } from "./interfaces";
+import { Data, FilteredSizes } from "./interfaces";
 import { convertToObject } from "typescript";
 
 const theme = createTheme({
@@ -32,7 +32,7 @@ const theme = createTheme({
 });
 
 function App() {
-  const [data, setData] = useState<Data[]>([
+  const rawData: Data[] = [
     {
       name: "Cropped Stay Groovy off white",
       id: 1,
@@ -163,8 +163,37 @@ function App() {
       quantity: 0,
       quote: "",
     },
-  ]);
+  ];
+  const [data, setData] = useState<Data[]>(rawData);
   const [tempDrawer, setTempDrawer] = useState<boolean>(false);
+  const [filteredSizes, setFilteredSizes] = useState<
+    { name: string; value: boolean }[]
+  >([
+    {
+      name: "XS",
+      value: false,
+    },
+    {
+      name: "S",
+      value: false,
+    },
+    {
+      name: "M",
+      value: false,
+    },
+    {
+      name: "L",
+      value: false,
+    },
+    {
+      name: "XL",
+      value: false,
+    },
+    {
+      name: "XXL",
+      value: false,
+    },
+  ]);
 
   function onAddCart(id: number) {
     //opens the drawer adds the new quantity
@@ -203,6 +232,36 @@ function App() {
 
     setData(newData);
   }
+
+  function filterSize(sizeAction: string) {
+    const sizeFilteredData = filteredSizes.map((size) =>
+      size.name === sizeAction ? { ...size, value: !size.value } : { ...size }
+    );
+    // if (Object.values(sizeFilteredData).every((size) => size.value === false)) {
+    //   setData(rawData);
+    //   return;
+    // }
+
+    setFilteredSizes(sizeFilteredData);
+    // console.log(sizeFilteredData, "qwerty");
+
+    function organiseFilter(filteredSizes: FilteredSizes[]) {
+      const filteredRawData = [];
+      for (let i = 0; i < filteredSizes.length; i++) {
+        if (filteredSizes[i].value === true) {
+          let tempArray = rawData.filter(
+            (rawDataItem) => rawDataItem.size === filteredSizes[i].name
+          );
+          for (let j = 0; j < tempArray.length; j++) {
+            filteredRawData.push(tempArray[j]);
+          }
+        }
+      }
+      console.log(filteredRawData, "filteredRawData");
+      setData(filteredRawData);
+    }
+    organiseFilter(sizeFilteredData);
+  }
   function importVals() {
     const totalQuant = data
       .map((dataItem) => dataItem.quantity)
@@ -222,7 +281,6 @@ function App() {
     );
     return [totalQuant, totalValue, totalAverageValue];
   }
-  importVals();
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -236,7 +294,7 @@ function App() {
           />
           <Grid container spacing={2} sx={{ paddingTop: "85px" }}>
             <Grid item xs={3}>
-              <Size />
+              <Size filterSize={filterSize} />
             </Grid>
             <Grid item xs={9}>
               <Cards data={data} onAddCart={onAddCart} />

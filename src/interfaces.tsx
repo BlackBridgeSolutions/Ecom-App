@@ -13,3 +13,8 @@ export interface Data {
   quantity: number;
   quote: string;
 }
+
+export interface FilteredSizes {
+  name: string;
+  value: boolean;
+}
