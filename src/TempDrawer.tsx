@@ -67,7 +67,7 @@ export default function TempDrawer({
               color="secondary"
               sx={{
                 position: "absolute",
-                backgroundColor: "orange",
+                backgroundColor: "1B1A20",
                 borderRadius: "0",
                 minWidth: "50px",
                 height: "50px",

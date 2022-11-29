@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import Cards from "./Cards";
-import { CssBaseline, Typography, Grid } from "@mui/material";
+import { CssBaseline, Grid } from "@mui/material";
 import PrimarySearchAppBar from "./PrimarySearchBar";
-import { createTheme, ThemeProvider, colors } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import Size from "./Size";
 import { Data, FilteredSizes } from "./interfaces";
-import { convertToObject } from "typescript";
 
 const theme = createTheme({
   palette: {
