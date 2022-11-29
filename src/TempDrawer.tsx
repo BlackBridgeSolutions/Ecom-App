@@ -20,8 +20,6 @@ interface Props {
   importVals: any;
 }
 
-type Anchor = "right";
-
 export default function TempDrawer({
   handleTempDrawer,
   tempDrawer,
@@ -60,6 +58,7 @@ export default function TempDrawer({
           position: "relative",
         }}
         hideBackdrop={true}
+        ModalProps={{ disableScrollLock: true }}
       >
         <Grid container sx={{ overflow: "auto" }}>
           <Grid item>
@@ -67,7 +66,7 @@ export default function TempDrawer({
               color="secondary"
               sx={{
                 position: "absolute",
-                backgroundColor: "1B1A20",
+                backgroundColor: "#1B1A20",
                 borderRadius: "0",
                 minWidth: "50px",
                 height: "50px",

@@ -37,7 +37,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
       return false;
     }
   }
-
+  console.log(parseFloat(importVals()[0]).toFixed(2), "123456");
   return (
     <div>
       <Box
@@ -182,7 +182,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
               color="warning.main"
               sx={{ float: "right", paddingRight: "30px", fontSize: "22px" }}
             >
-              ${importVals()[1].toString()}
+              ${parseFloat(importVals()[1]).toFixed(2)}
             </Typography>
             <Typography
               sx={{
@@ -194,7 +194,8 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
                 visibility: importVals()[0] === 0 ? "hidden" : "visible",
               }}
             >
-              OR UP TO {importVals()[0]} x ${importVals()[2]}
+              OR UP TO {importVals()[0]} x $
+              {parseFloat(importVals()[2]).toFixed(2)}
             </Typography>
           </Grid>
         </Grid>

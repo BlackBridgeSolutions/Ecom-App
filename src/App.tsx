@@ -230,7 +230,6 @@ function App() {
 
     setData(newData);
   }
-
   function filterSize(sizeAction: string) {
     const sizeFilteredData = filteredSizes.map((size) =>
       size.name === sizeAction ? { ...size, value: !size.value } : { ...size }

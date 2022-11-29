@@ -3,10 +3,6 @@ import { Grid, Typography, Checkbox } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 
-interface SizeClickedItem {
-  value: string;
-  clicked: boolean;
-}
 interface Props {
   filterSize: any;
 }
