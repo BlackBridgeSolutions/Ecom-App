@@ -19,8 +19,8 @@ import { Data } from "./interfaces";
 
 interface Props {
   data: Data[];
-  changeQuant: any;
-  importVals: any;
+  changeQuant: (id: number, functiontype: string) => void;
+  importVals: () => number[];
 }
 
 export default function Cart({ data, changeQuant, importVals }: Props) {
@@ -37,7 +37,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
       return false;
     }
   }
-  console.log(parseFloat(importVals()[0]).toFixed(2), "123456");
+  console.log(importVals()[0].toFixed(2), "123456");
   return (
     <div>
       <Box
@@ -182,7 +182,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
               color="warning.main"
               sx={{ float: "right", paddingRight: "30px", fontSize: "22px" }}
             >
-              ${parseFloat(importVals()[1]).toFixed(2)}
+              ${importVals()[1].toFixed(2)}
             </Typography>
             <Typography
               sx={{
@@ -194,8 +194,7 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
                 visibility: importVals()[0] === 0 ? "hidden" : "visible",
               }}
             >
-              OR UP TO {importVals()[0]} x $
-              {parseFloat(importVals()[2]).toFixed(2)}
+              OR UP TO {importVals()[0]} x ${importVals()[2].toFixed(2)}
             </Typography>
           </Grid>
         </Grid>
@@ -209,6 +208,9 @@ export default function Cart({ data, changeQuant, importVals }: Props) {
             margin: "25px 20px",
           }}
           color="secondary"
+          onClick={() =>
+            alert(`Checkout - Subtotal: ${importVals()[1].toFixed(2)}`)
+          }
         >
           Checkout
         </Button>

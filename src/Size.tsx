@@ -4,7 +4,7 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 
 interface Props {
-  filterSize: any;
+  filterSize: (sizeAction: string) => void;
 }
 
 export default function Size({ filterSize }: Props) {

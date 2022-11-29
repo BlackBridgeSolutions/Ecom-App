@@ -6,7 +6,7 @@ import MediaCard from "./MediaCard";
 
 interface Props {
   data: Data[];
-  onAddCart: any;
+  onAddCart: (id: number) => void;
 }
 
 export default function Cards({ data, onAddCart }: Props) {

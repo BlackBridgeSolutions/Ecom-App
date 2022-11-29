@@ -9,11 +9,11 @@ import TempDrawer from "./TempDrawer";
 import { Data } from "./interfaces";
 
 interface Props {
-  handleTempDrawer: any;
+  handleTempDrawer: (bool: boolean) => void;
   tempDrawer: boolean;
   data: Data[];
-  changeQuant: any;
-  importVals: any;
+  changeQuant: (id: number, functiontype: string) => void;
+  importVals: () => number[];
 }
 
 export default function PrimarySearchAppBar({

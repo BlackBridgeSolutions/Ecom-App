@@ -193,7 +193,7 @@ function App() {
     },
   ]);
 
-  function onAddCart(id: number) {
+  function onAddCart(id: number): void {
     //opens the drawer adds the new quantity
     const newData = data.map((dataItem) =>
       dataItem.id === id
@@ -205,10 +205,10 @@ function App() {
       setTempDrawer(true);
     }
   }
-  function handleTempDrawer(bool: boolean) {
+  function handleTempDrawer(bool: boolean): void {
     setTempDrawer(bool);
   }
-  function changeQuant(id: number, version: string) {
+  function changeQuant(id: number, version: string): void {
     let newData: Data[] = [];
     if (version === "increment") {
       newData = data.map((dataItem) =>
@@ -230,7 +230,7 @@ function App() {
 
     setData(newData);
   }
-  function filterSize(sizeAction: string) {
+  function filterSize(sizeAction: string): void {
     const sizeFilteredData = filteredSizes.map((size) =>
       size.name === sizeAction ? { ...size, value: !size.value } : { ...size }
     );
@@ -242,7 +242,7 @@ function App() {
     setFilteredSizes(sizeFilteredData);
     // console.log(sizeFilteredData, "qwerty");
 
-    function organiseFilter(filteredSizes: FilteredSizes[]) {
+    function organiseFilter(filteredSizes: FilteredSizes[]): void {
       const filteredRawData = [];
       for (let i = 0; i < filteredSizes.length; i++) {
         if (filteredSizes[i].value === true) {
@@ -259,7 +259,7 @@ function App() {
     }
     organiseFilter(sizeFilteredData);
   }
-  function importVals() {
+  function importVals(): number[] {
     const totalQuant = data
       .map((dataItem) => dataItem.quantity)
       .reduce((partialSum, a) => partialSum + a, 0);
